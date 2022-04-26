@@ -1,0 +1,22 @@
+﻿@page "/apitest"
+
+<h3>ApiTest</h3>
+
+@if (ApiVersion == null)
+{
+    <p><em>Loading ...</em></p>
+    @if (PageError != null)
+    {
+        <p>ERROR: </p>
+        <p><em>@PageError</em></p>
+    }
+}
+else
+{
+    @if (ApiResponding!=null){
+        <p>Api Responding:  <em>@ApiResponding</em></p>
+
+    }
+    <p>API Version:</p>
+    <p><em>@ApiVersion</em></p>
+}

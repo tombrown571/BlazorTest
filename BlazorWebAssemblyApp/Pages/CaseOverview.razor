@@ -1,0 +1,46 @@
+﻿@page "/caseoverview"
+
+<h1 class="page-title">Current Cases</h1>
+
+@if (Cases == null)
+{
+    if (ApiError == null)
+    {
+        <p><em>Loading ...</em></p>
+    }
+    else
+    {
+        <p><em>@ApiError</em></p>
+    }
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Id</th>
+                <th>Ref</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fpCase in Cases)
+            {
+                <tr>
+                    <td></td>
+                    <td>@fpCase.Id</td>
+                    <td>@fpCase.Reference</td>
+                    <td>@fpCase.Name</td>
+                    <td>@fpCase.Description</td>
+                    <td>
+                        <a href="@($"casedetail/{fpCase.Id}")" class="btn btn-primary table-btn">
+                            <i class="fa-solid fa-info"  title="Case Details"></i>                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
